@@ -1,0 +1,102 @@
+.investment-fees-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-family: Arial, sans-serif;
+}
+
+.investment-fees-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #2c3e50;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.section h3 {
+  font-size: 1.3rem;
+  color: #34495e;
+  margin-bottom: 0.8rem;
+}
+
+.section label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: #555;
+}
+
+.section select,
+.section input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border 0.3s ease;
+}
+
+.section select:focus,
+.section input[type="number"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.toggle-btn,
+.fee-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-btn {
+  background-color: #007bff;
+}
+
+.toggle-btn:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.fee-btn {
+  background-color: #28a745;
+}
+
+.fee-btn:hover:not(:disabled) {
+  background-color: #1e7e34;
+}
+
+.toggle-btn:disabled,
+.fee-btn:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .investment-fees-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .investment-fees-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .section h3 {
+    font-size: 1.1rem;
+  }
+}

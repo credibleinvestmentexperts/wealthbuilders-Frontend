@@ -1,0 +1,59 @@
+.p-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--nav-bg);
+}
+
+.p-GreenWood-loader {
+  position: relative;
+  text-align: center;
+}
+
+.p-loader-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--nav-logo);
+  animation: slideText 3s infinite ease-in-out;
+}
+
+.p-loader-circle {
+  width: 50px;
+  height: 50px;
+  margin: 20px auto;
+  border-radius: 50%;
+  background-color: var(--blue-primary);
+  animation: pulseCircle 1.5s infinite;
+}
+
+/* Animations */
+@keyframes slideText {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseCircle {
+  0% {
+    transform: scale(1);
+    background-color: var(--blue-primary);
+  }
+  50% {
+    transform: scale(1.5);
+    background-color: var(--blue-dark);
+  }
+  100% {
+    transform: scale(1);
+    background-color: var(--blue-primary);
+  }
+}
