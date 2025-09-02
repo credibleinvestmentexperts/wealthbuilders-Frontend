@@ -61,11 +61,11 @@ const Footer = () => {
               invest@wealtybuilders.com
             </a>
           </p>
-          <p>Phone: +1 (414) 317‑2077 </p>
+          <p>Phone: +1 (205) 368‑0479 </p>
           <p>Address: 5600 S Quebec St, Denver, CO, United States</p>
           <div className="social-icons">
             <a
-              href="https://wa.me/14143172077"
+              href="https://wa.me/12053680479"
               aria-label="WhatsApp"
               target="_blank"
             >
