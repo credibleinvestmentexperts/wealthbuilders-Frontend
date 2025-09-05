@@ -1,7 +1,6 @@
-
 import React, { useEffect } from "react";
 import "./index.css";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Auth/Login/Login";
 import SignUp from "./Pages/Auth/SignUp/SignUp";
@@ -52,10 +51,12 @@ import AdminPendingKyc from "./Pages/AdminPendingKyc/AdminPendingKyc";
 import License from "./Pages/License/License";
 import Chart from "./Pages/Chart/Chart";
 import InvestmentFees from "./Pages/InvestmentFees/InvestmentFees";
+import logVisitor from "./components/logVisitor";
 
 axios.defaults.withCredentials = true;
 
 const App = () => {
+  const location = useLocation(); // 👈 track route changes
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const user = useSelector(selectUser);
@@ -66,6 +67,11 @@ const App = () => {
       dispatch(getUser());
     }
   }, [dispatch, isLoggedIn, user]);
+
+    // 👇 log visitor on each page view
+  useEffect(() => {
+    logVisitor(location.pathname);
+  }, [location.pathname]);
   return (
     <div className="App">
       <Navbar />
@@ -88,19 +94,34 @@ const App = () => {
           <Route path="/upload-kyc" element={<UploadKyc />} />
           <Route path="/pending-kyc" element={<AdminPendingKyc />} />
           <Route path="/referrals" element={<Referrals />} />
-          <Route path="/transaction-History" element={<AllTransactionHistory />} />
+          <Route
+            path="/transaction-History"
+            element={<AllTransactionHistory />}
+          />
           <Route path="/deposit-payment" element={<Deposit />} />
           <Route path="/withdraw-wallet" element={<Withdraw />} />
           <Route path="/withdrawal/:id" element={<AdminWithdrawalDetail />} />
-          <Route path="/admin-pending-wallet" element={<PendingWithdrawals />} />
+          <Route
+            path="/admin-pending-wallet"
+            element={<PendingWithdrawals />}
+          />
           <Route path="/start-invest" element={<StartInvestment />} />
           <Route path="/invest-status" element={<InvestmentStatus />} />
-          <Route path="/investment/:investmentId" element={<InvestmentDetail />} />
+          <Route
+            path="/investment/:investmentId"
+            element={<InvestmentDetail />}
+          />
           <Route path="/edit-balance/:id" element={<EditBalance />} />
           <Route path="/edit-user-balance/:id" element={<UserBalEditted />} />
           <Route path="/update-fee/:id" element={<InvestmentFees />} />
-          <Route path="/admin-pending-deposit" element={<GetAllPendingDeposit />} />
-          <Route path="/admin-pending-investment" element={<GetAllPendingInvestment />} />
+          <Route
+            path="/admin-pending-deposit"
+            element={<GetAllPendingDeposit />}
+          />
+          <Route
+            path="/admin-pending-investment"
+            element={<GetAllPendingInvestment />}
+          />
           <Route
             path="/transaction/:transactionId"
             element={<PaymentManagement />}
