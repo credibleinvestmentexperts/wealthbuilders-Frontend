@@ -5,7 +5,7 @@ const logVisitor = async (page) => {
     const ipResponse = await axios.get("https://api.ipify.org?format=json"); // fetch IP
     const ip = ipResponse.data.ip;
 
-    await axios.post(`${process.env.REACT_APP_BACKEND_URL}api/visitor`, {
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}api/visitors/all`, {
       page,
       ip,
     });
